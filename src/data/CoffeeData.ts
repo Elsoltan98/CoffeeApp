@@ -31,8 +31,9 @@ import latteSquare2 from '../assets/coffee_assets/latte/square/latte_pic_2_squar
 import lattePortrait2 from '../assets/coffee_assets/latte/portrait/latte_pic_2_portrait.png';
 import latteSquare3 from '../assets/coffee_assets/latte/square/latte_pic_3_square.png';
 import lattePortrait3 from '../assets/coffee_assets/latte/portrait/latte_pic_3_portrait.png';
+import {ICoffeeData} from '../interfaces/Icoffee';
 
-const CoffeeData = [
+const CoffeeData: ICoffeeData[] = [
   {
     id: 'C1',
     name: 'Americano',

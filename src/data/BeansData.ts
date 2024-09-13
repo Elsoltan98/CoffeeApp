@@ -6,8 +6,9 @@ import libericaSquare from '../assets/coffee_assets/liberica_coffee_beans/liberi
 import libericaPortrait from '../assets/coffee_assets/liberica_coffee_beans/liberica_coffee_beans_portrait.png';
 import excelsaSquare from '../assets/coffee_assets/excelsa_coffee_beans/excelsa_coffee_beans_square.png';
 import excelsaPortrait from '../assets/coffee_assets/excelsa_coffee_beans/excelsa_coffee_beans_portrait.png';
+import {ICoffeeData} from '../interfaces/Icoffee';
 
-const BeansData = [
+const BeansData: ICoffeeData[] = [
   {
     id: 'B1',
     name: 'Robusta Beans',
