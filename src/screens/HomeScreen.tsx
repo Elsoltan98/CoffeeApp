@@ -1,4 +1,5 @@
 import {
+  FlatList,
   ScrollView,
   StatusBar,
   StyleSheet,
@@ -21,6 +22,7 @@ import {
 import HeaderBar from '../components/HeaderBar';
 import CustomIcon from '../components/CustomIcon';
 import {useStore} from './../store/store';
+import GradientCard from '../components/GradientCard';
 
 const getCategoriesFromData = (data: ICoffeeData[]) => {
   const temp: Record<string, number> = {};
@@ -57,7 +59,7 @@ const HomeScreen = () => {
     index: 0,
     category: categories[0],
   });
-  const [, setSortedCoffee] = useState(
+  const [sortedCoffee, setSortedCoffee] = useState(
     getCoffeeList(categoryIndex.category, CoffeList),
   );
 
@@ -101,7 +103,9 @@ const HomeScreen = () => {
               <TouchableOpacity
                 onPress={() => {
                   setCategoryIndex({index, category: categories[index]});
-                  setSortedCoffee(getCoffeeList(categories[index], CoffeList));
+                  setSortedCoffee([
+                    ...getCoffeeList(categories[index], CoffeList),
+                  ]);
                 }}
                 style={styles.CategoryScrollItem}>
                 <Text
@@ -122,6 +126,17 @@ const HomeScreen = () => {
             </View>
           ))}
         </ScrollView>
+        <FlatList
+          data={sortedCoffee}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={item => item.id}
+          renderItem={({item}) => (
+            <TouchableOpacity>
+              <GradientCard item={item} />
+            </TouchableOpacity>
+          )}
+        />
       </ScrollView>
     </View>
   );
